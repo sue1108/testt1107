@@ -31,14 +31,14 @@ public class SortClass {
 	 * @param aList
 	 * @return
 	 */
-	public List<AClass> sort(List<AClass> aList ){
+	public List<AClass> sortOld(List<AClass> aList ){
 		int len = aList.size();
 		int tmp = 0;
-		AClass aTemp = new AClass();//多余行
+		AClass aTemp ;//多余行，不必创建对象
 		for( int i = 0 ; i < len ; i++){
-			for( int j = i + 1 ; j < len ; j++){
+			for( int j = i + 1 ; j < len ; j++){//多次使用的应该定义一个变量
 				if( aList.get(i).getV1() < aList.get(j).getV1() ){ //如果i的v1小于j的v1，则替换
-					aTemp = aList.get(i);
+					aTemp = aList.get(i);//提取方法置换值
 					aList.set(i, aList.get(j));
 					aList.set(j, aTemp);
 				}else if(  aList.get(i).getV1() == aList.get(j).getV1() ){//如果i的v1等于j的v1，则根据v2的升序排列
@@ -47,6 +47,35 @@ public class SortClass {
 						aList.set(i, aList.get(j));
 						aList.set(j, aTemp);
 					} 
+				}
+			}
+		}
+		
+		return aList;
+	}
+	
+	/**
+	 * 修改了sort方法
+	 * @param aList
+	 * @return
+	 */
+	public List<AClass> sort(List<AClass> aList ){
+		int len = aList.size();
+		AClass aTempI ;//不必创建对象
+		AClass aTempJ ;//不必创建对象
+		AClass aTemp ;//不必创建对象
+		for( int i = 0 ; i < len ; i++){
+			for( int j = i + 1 ; j < len ; j++){//多次使用的应该定义一个变量
+				aTempI = aList.get(i);
+				aTempJ = aList.get(j);
+				
+				if( aTempI.getV1() < aTempJ.getV1()  //如果i的v1小于j的v1，则替换（降序排列）
+						//如果i的v1等于j的v1，则根据v2的升序排列
+					  || ( aTempI.getV1() == aTempJ.getV1() && aTempI.getV2() > aTempJ.getV2() ) 
+					){
+					aTemp = aTempI;
+					aList.set(i, aTempJ);
+					aList.set(j, aTemp);
 				}
 			}
 		}

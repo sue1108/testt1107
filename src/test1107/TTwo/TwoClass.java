@@ -7,7 +7,7 @@ public class TwoClass {
 	 * @param intNum
 	 * @return
 	 */
-	public String intToHex( int intNum){
+	public String intToHexOld( int intNum){//参数的各种情况考虑不周全，创建了多少对象，使用了多少内存
 		String str = "";
 		int tmp = 0;
 //		int init = intNum;
@@ -30,6 +30,46 @@ public class TwoClass {
 		return str;
 	}
 	
+	
+	/**
+	 * 完善后的代码
+	 * 将正整数转换成16进制的串
+	 * @param intNum
+	 * @return
+	 */
+	public String intToHex( int intNum){//参数的各种情况考虑不周全，创建了多少对象，使用了多少内存
+		
+		if ( intNum < 0){  //如果为负数，则提示错误
+			return "参数有误，应该为正整数！";
+			
+		}else{
+			StringBuffer sbf = new StringBuffer();
+			int tmp = 0;
+			if( intNum > 10){
+				while ( intNum/16 > 0  || intNum > 0){  
+					tmp = intNum%16;
+					if( tmp > 10)
+//					    str = this.replaceNumToChar(tmp) + str;
+						sbf.append(this.replaceNumToChar(tmp));
+					else
+//						str = tmp + str;
+						sbf.append(tmp);
+					intNum = intNum/16;
+				}
+				/*if( intNum > 10)
+				    str = this.replaceNumToChar(intNum) + str;
+				else
+					str = intNum + str;*/
+			}else{
+//				str = intNum + "";
+				sbf.append(intNum);
+			}
+			return sbf.reverse().toString();
+		}
+	}
+	
+	
+	
 	/**
 	 * 将10-15的十进制转换为A-F
 	 * @param num
@@ -49,7 +89,8 @@ public class TwoClass {
 	
 	public static void main(String args[]){
 		TwoClass two = new TwoClass();
-		System.out.println(two.intToHex(125));
+//		System.out.println(two.intToHexOld(1234345));
+		System.out.println(two.intToHex(1234345));
 /*		System.out.println(1/6);
 		System.out.println(1%16);
 		int i = 65;
