@@ -64,7 +64,6 @@ public class NodeClass {
 					nodeArr[0] = tree;
 					int i = 0;  //
 					int j = 1;  //
-					
 					int tmp =0;
 					if( treeLen >  endLen)  //说需要返回的不是最后一层的节点
 						tmp = endLen;
@@ -79,9 +78,7 @@ public class NodeClass {
 						}
 					    i++;
 					}
-					
 					StringBuffer sbf = new StringBuffer();
-
 					for( int m = startLen ; m < tmp  ; m++ )
 					{
 						sbf.append(nodeArr[m].getValue() + "-");
@@ -93,7 +90,6 @@ public class NodeClass {
 		}else{
 			str = "N应该为正整数";
 		}
-		
 		return str;
 	}
 	
