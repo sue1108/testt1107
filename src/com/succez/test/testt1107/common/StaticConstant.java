@@ -7,7 +7,7 @@ package com.succez.test.testt1107.common;
  */
 public class StaticConstant {
 
-
+ 
 	/**
 	 * 初始化StringBuffer对象默认的存储空间
 	 */
