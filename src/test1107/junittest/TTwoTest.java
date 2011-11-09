@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import test1107.TTwo.TwoClass;
+import test1107.ttwo.TwoClass;
 
 public class TTwoTest {
 

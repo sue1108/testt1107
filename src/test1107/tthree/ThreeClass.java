@@ -1,4 +1,4 @@
-package test1107.TThree;
+package test1107.tthree;
 
 import java.io.File;
 import java.io.FileInputStream;

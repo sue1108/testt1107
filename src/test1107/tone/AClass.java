@@ -1,4 +1,4 @@
-package test1107.TOne;
+package test1107.tone;
 
 public class AClass {
 

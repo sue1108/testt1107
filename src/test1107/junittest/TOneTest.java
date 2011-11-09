@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import test1107.TOne.AClass;
-import test1107.TOne.SortClass;
+import test1107.tone.AClass;
+import test1107.tone.SortClass;
 
 public class TOneTest {
 

@@ -1,4 +1,4 @@
-package test1107.TTwo;
+package test1107.ttwo;
 
 public class TwoClass {
 

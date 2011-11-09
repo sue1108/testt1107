@@ -6,7 +6,7 @@ import java.io.File;
 
 import org.junit.Test;
 
-import test1107.TThree.ThreeClass;
+import test1107.tthree.ThreeClass;
 
 public class TThreeTest {
 

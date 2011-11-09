@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import test1107.TFour.NodeClass;
-import test1107.TFour.TNode;
+import test1107.tfour.NodeClass;
+import test1107.tfour.TNode;
 
 public class TFourTest {
 
