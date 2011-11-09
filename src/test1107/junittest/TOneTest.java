@@ -1,6 +1,5 @@
 package test1107.junittest;
 
-import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,7 @@ public class TOneTest {
 	public void test() {
 //		fail("Not yet implemented");
 		List<AClass> aList = new ArrayList<AClass>();
-    	aList = new SortClass().getListValues(aList , 10);
+    	aList = new SortClass().getListValues(aList ,10);
     	
     	System.out.println("v1-v2");
     	for (AClass class1 : aList) {
