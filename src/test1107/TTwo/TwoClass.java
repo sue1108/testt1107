@@ -2,34 +2,6 @@ package test1107.TTwo;
 
 public class TwoClass {
 
-	/**
-	 * 将正整数转换成16进制的串
-	 * @param intNum
-	 * @return
-	 */
-	public String intToHexOld( int intNum){//参数的各种情况考虑不周全，创建了多少对象，使用了多少内存
-		String str = "";
-		int tmp = 0;
-//		int init = intNum;
-		if( intNum > 10){
-			while ( intNum/16 > 0 ){
-				tmp = intNum%16;
-				if( tmp > 10)
-				    str = this.replaceNumToChar(tmp) + str;
-				else
-					str = tmp + str;
-				intNum = intNum/16;
-			}
-			if( intNum > 10)
-			    str = this.replaceNumToChar(intNum) + str;
-			else
-				str = intNum + str;
-		}else{
-			str = intNum + "";
-		}
-		return str;
-	}
-	
 	
 	/**
 	 * 完善后的代码
@@ -37,8 +9,7 @@ public class TwoClass {
 	 * @param intNum
 	 * @return
 	 */
-	public String intToHex( int intNum){//参数的各种情况考虑不周全，创建了多少对象，使用了多少内存
-		
+	public String intToHex( int intNum){
 		if ( intNum < 0){  //如果为负数，则提示错误
 			return "参数有误，应该为正整数！";
 			
@@ -49,19 +20,12 @@ public class TwoClass {
 				while ( intNum/16 > 0  || intNum > 0){  
 					tmp = intNum%16;
 					if( tmp > 10)
-//					    str = this.replaceNumToChar(tmp) + str;
 						sbf.append(this.replaceNumToChar(tmp));
 					else
-//						str = tmp + str;
 						sbf.append(tmp);
 					intNum = intNum/16;
 				}
-				/*if( intNum > 10)
-				    str = this.replaceNumToChar(intNum) + str;
-				else
-					str = intNum + str;*/
 			}else{
-//				str = intNum + "";
 				sbf.append(intNum);
 			}
 			return sbf.reverse().toString();
@@ -81,11 +45,6 @@ public class TwoClass {
 		return String.valueOf(a);
 	}
 	
-/*	public int fun(int intNum){
-		while (intNum/16 > 0)
-			;
-		return intNum/16;
-	}*/
 	
 	public static void main(String args[]){
 		TwoClass two = new TwoClass();

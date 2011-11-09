@@ -26,33 +26,6 @@ public class SortClass {
 		return aList;
 	}
 	
-	/**
-	 * 排序,V1降序排列，如果V1相等，则V2升序排列
-	 * @param aList
-	 * @return
-	 */
-	public List<AClass> sortOld(List<AClass> aList ){
-		int len = aList.size();
-		int tmp = 0;
-		AClass aTemp ;//多余行，不必创建对象
-		for( int i = 0 ; i < len ; i++){
-			for( int j = i + 1 ; j < len ; j++){//多次使用的应该定义一个变量
-				if( aList.get(i).getV1() < aList.get(j).getV1() ){ //如果i的v1小于j的v1，则替换
-					aTemp = aList.get(i);//提取方法置换值
-					aList.set(i, aList.get(j));
-					aList.set(j, aTemp);
-				}else if(  aList.get(i).getV1() == aList.get(j).getV1() ){//如果i的v1等于j的v1，则根据v2的升序排列
-					if( aList.get(i).getV2() > aList.get(j).getV2() ){ 
-						aTemp = aList.get(i);
-						aList.set(i, aList.get(j));
-						aList.set(j, aTemp);
-					} 
-				}
-			}
-		}
-		
-		return aList;
-	}
 	
 	/**
 	 * 修改了sort方法
