@@ -2,9 +2,7 @@ package test1107.ttwo;
 
 public class TwoClass {
 
-	
 	/**
-	 * 完善后的代码
 	 * 将正整数转换成16进制的串
 	 * @param intNum
 	 * @return
@@ -33,7 +31,6 @@ public class TwoClass {
 	}
 	
 	
-	
 	/**
 	 * 将10-15的十进制转换为A-F
 	 * @param num
@@ -44,17 +41,5 @@ public class TwoClass {
 		char a = (char)(num + 55);
 		return String.valueOf(a);
 	}
-	
-	
-	public static void main(String args[]){
-		TwoClass two = new TwoClass();
-//		System.out.println(two.intToHexOld(1234345));
-		System.out.println(two.intToHex(1234345));
-/*		System.out.println(1/6);
-		System.out.println(1%16);
-		int i = 65;
-		char a = (char)i;
-		String b = String.valueOf(a);
-		System.out.println(b);*/
-	}
+
 }

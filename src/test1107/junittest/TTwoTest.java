@@ -12,7 +12,7 @@ public class TTwoTest {
 	public void test() {
 //		fail("Not yet implemented");
 		TwoClass two = new TwoClass();
-		System.out.println(two.intToHex(125));
+		System.out.println(two.intToHex(1111));
 	}
 
 }
