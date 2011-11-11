@@ -2,35 +2,41 @@ package com.succez.test.testt1107.fourtree;
 
 import com.succez.test.testt1107.pojo.TNode;
 
-
+/**
+ * 
+ * <p>Copyright: Copyright (c) 2011<p>
+ * <p>二叉树的设置、遍历<p>
+ * @author sue
+ * @createdate 2011-11-07
+ */
 public class NodeClass {
 	
 	/**
-	 * 递归为二叉树设置值
-	 * @param tree
-	 * @return
+	 * 默认值
 	 */
-	
 	private static String treeValues[] = {"A" , 
-		"B" , "D" ,
-		"G" , "H" , "C" , "F" ,
-		"H1" , "C1" , "F1" , "H" , "C" , "F" , "H1" , "C1" , 
-		"F1" ,"G" , "H" , "C" , "F" ,"#"}; 
+//		"B" ,
+//		"D" ,
+//		"G" , "H" , "C" , "F" ,
+//		"H1" , "C1" , "F1" , "H" , "C" , "F" , "H1" , "C1" , 
+//		"F1" ,"G" , "H" , "C" , "F" ,
+		"#"}; 
 	
 	private static int index =0;
 
-	public NodeClass(){
+	public NodeClass(String treeValues[]){
 		index = 0;
+		NodeClass.treeValues = treeValues;
 	}
-//	, "#"
+	
 	/**
-	 * 递归为二叉树赋值
-	 * @return
+	 * <p>递归为二叉树赋值</p>
+	 * @return	返回二叉树
 	 */
 	public static TNode setTreeValue( ){
 		TNode tree = new TNode();
 		if( treeValues!= null && treeValues.length > 0 && index >= 0){
-			if( index > treeValues.length-1 || treeValues[index].equals("#")) //
+			if( index > treeValues.length-1 || treeValues[index].equals("#")) 
 				return tree;
 			else{
 				
@@ -49,14 +55,14 @@ public class NodeClass {
 	}
 
 	/**
-	 * 按层遍历，遍历第n层的数，放入一个数组中
-	 * @param tree
-	 * @param n
-	 * @return
+	 * <p>按层遍历，遍历第n层的数，放入一个数组中</p>
+	 * @param tree		
+	 * @param n			遍历第n层的数
+	 * @return			返回遍历第n层的数，顺序为从左到右<br/>如果n<=0或者tree为null，不作任何操作，并返回相应错误提示
 	 */
 	public static String treeLevel( TNode tree , int n){
 		String str = null;
-		if(n>0 ){
+		if(n>0 && tree != null && tree.getValue() != null ){
 			int endLen = (int)Math.pow(2, n)-1;   //到第N层止的总共节点数
 			int startLen = (int)Math.pow(2, n-1)-1;  //到第N-1层止的总共节点数
 			int treeLen = treeValues.length -1 ;//二叉树的总共节点数
@@ -71,14 +77,22 @@ public class NodeClass {
 						tmp = endLen;
 					else    //说明需要返回的是最后一层的节点
 						tmp = treeLen ;
+					TNode tmpNode ;
+					int t = 0;
 					while( j <=  tmp){ //按层次遍历二叉树
-						if( nodeArr[i].getLeft() != null){
-							nodeArr[j++] = nodeArr[i].getLeft();  //左
+						
+						//如果t=0，取左子节点，t=1，取右子节点
+						while(t<2){
+							tmpNode = (t==0) ? nodeArr[i].getLeft() : nodeArr[i].getRight();
+							if( tmpNode != null && tmpNode.getValue() != null){
+								nodeArr[j++] = tmpNode;  
+							}else{
+								j++;
+							}
+							t++;
 						}
-						if( nodeArr[i].getRight() != null ){
-							nodeArr[j++] = nodeArr[i].getRight(); //右
-						}
-					    i++;
+						i++;
+						t = 0;
 					}
 					StringBuffer sbf = new StringBuffer();
 					for( int m = startLen ; m < tmp  ; m++ )
@@ -90,16 +104,8 @@ public class NodeClass {
 				str = "没有第N层";
 			}
 		}else{
-			str = "N应该为正整数";
+			str = "TNode不能为null并且N应该为正整数";
 		}
 		return str;
-	}
-	
-	public static void main(String args[]){
-		TNode node = NodeClass.setTreeValue();
-//		System.out.println(node.getValue());
-		if( node != null)
-		System.out.println(NodeClass.treeLevel(node, -1));
-//		NodeClass.treeLevel(node, 2);
 	}
 }
