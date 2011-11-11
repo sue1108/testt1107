@@ -18,7 +18,7 @@ public class TOneTest {
 	public void test() {
 //		fail("Not yet implemented");
 		List<AClass> aList = new ArrayList<AClass>();
-    	aList = new SortClass().getListValues(aList ,10);
+    	aList = new SortClass().getListValues(aList ,5);
     	Logger logger = LoggerFactory.getLogger(TOneTest.class);
 //    	if (logger.isDebugEnabled()){
 //    		logger.debug("auto add private component[{}] to component's model.", 1);
@@ -27,14 +27,14 @@ public class TOneTest {
 //    	System.out.println("v1-v2");
     	logger.info("v1-v2");
     	for (AClass class1 : aList) {
-//			System.out.println(class1.getV1() + "-" + class1.getV2());
-    		logger.info("{}-{}" ,class1.getV1() , class1.getV2());
+			System.out.println(class1.getV1() + "-" + class1.getV2());
+//    		logger.info("{}-{}" ,class1.getV1() , class1.getV2());
 		}
     	System.out.println("\nv1-v2");
     	aList = new SortClass().sort(aList);
     	for (AClass class1 : aList) {
-//			System.out.println(class1.getV1() + "-" + class1.getV2());
-			logger.info("{}-{}" ,class1.getV1() , class1.getV2());
+			System.out.println(class1.getV1() + "-" + class1.getV2());
+//			logger.info("{}-{}" ,class1.getV1() , class1.getV2());
     	}
 	}
 

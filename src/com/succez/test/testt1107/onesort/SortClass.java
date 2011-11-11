@@ -1,34 +1,26 @@
 package com.succez.test.testt1107.onesort;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.succez.test.testt1107.common.StaticConstant;
 import com.succez.test.testt1107.pojo.AClass;
 
+
 /**
- * 1、用于对List<AClass>的值进行排序<br/>
- * 2、类有2个方法:<br/>
- * 	public List<AClass> getListValues(List<AClass> aList , int n);<br/>
- * 	此方法是使用随机数对AClass的属性赋值，并将AClass的对象添加到aList中，aList的长度为n<br>
- * 	public List<AClass> sort(List<AClass> aList );<br/>
- * 	此方法是将aList的内容进行排序
+ * 
+ * <p>Copyright: Copyright (c) 2011<p>
  * @author sue
- * @createdate 2011-11-9
+ * @createdate 2011-11-11
  */
 public class SortClass {
 	
-	
 	/**
-	 * 1、循环n次，在循环体中，对AClass对象的2个属性赋值，值在0-100之间,将初始化的Aclass对象添加到aList中<br/>
-	 * 2、aList参数允许为null，当为null时，此方法会为aList创建对象；<br/>
-	 * 	参数n为aList的长度，输入的参数应该是正整数，如果小于0，则不作任何处理，直接返回list对象<br/>
-	 * 3、此方法不会抛出异常现象<br/>
-	 * 4、此方法的返回值为List<AClass>对象，在传入的参数n小于0时，如果传入的aList为null，则创建list对象并返回；<br/>
-	 * 	如果传入的aList不为null，原样返回
-	 * @param aList
-	 * @param aList
-	 * @return
+	 * <p>为List的对象赋值</p>
+	 * @param aList		允许为null，当为null时，初始化aList
+	 * @param n			aList的长度，正整数
+	 * @return			返回值为List<AClass>对象，如果n<0，不作任何处理，直接返回sList;n>=0,对aList赋值并返回
 	 */
 	public List<AClass> getListValues(List<AClass> aList , int n){
 		if( aList == null){   //对aList进行null判断，如果为空，则需要new对象，不为空，则不作操作
@@ -57,22 +49,17 @@ public class SortClass {
 	
 	
 	/**
-	 * 1、sort方法,使用冒泡排序法对List<AClass>进行排序<br/>
-	 * 2、参数aList对象不能为null，如果为null，则会为它创建对象，不作任何操作并返回此对象<br/>
-	 * 对aList进行排序，排序条件：<br/>
-	 *    条件一：对V1进行降序排列<br/>
-	 *    条件二：如果v1相等，则按v2的升序排列<br/>
-	 * 3、此方法的返回值为List<AClass>对象，如果传入的aList为null，则创建list对象并返回；<br/>
-	 * 	如果传入的aList不为null，则进行排序后返回操作后的aList
-	 * @param aList
-	 * @return
+	 * <p>使用冒泡排序法对指定列表进行排序</p>
+	 * <p>排序条件：1、按AClass的属性V1降序排列；2、如果V1相等，则按AClass的属性V2升序排列</p>
+	 * @param aList		不允许为null
+	 * @return			如果aList为null，则初始化aList，不作任何操作并返回aList
 	 */
 	public List<AClass> sort(List<AClass> aList ){
 		if( aList != null ){
 			int lenList = aList.size();
 			AClass aTempI ;//不必创建对象
 			AClass aTempJ ;
-			AClass aTemp ; 
+//			AClass aTemp ; 
 			for( int i = 0 ; i < lenList ; i++){
 				for( int j = i + 1 ; j < lenList ; j++){//多次使用的应该定义一个变量
 					aTempI = aList.get(i);
@@ -82,9 +69,10 @@ public class SortClass {
 							//如果i的v1等于j的v1，则根据v2的升序排列
 							|| ( aTempI.getV1() == aTempJ.getV1() && aTempI.getV2() > aTempJ.getV2() ) 
 						){
-						aTemp = aTempI;
+						Collections.swap(aList, i, j);
+						/*aTemp = aTempI;
 						aList.set(i, aTempJ);
-						aList.set(j, aTemp);
+						aList.set(j, aTemp);*/
 					}
 				}
 			}
