@@ -9,10 +9,10 @@ import com.succez.test.testt1107.pojo.AClass;
 
 
 /**
- * 
  * <p>Copyright: Copyright (c) 2011<p>
+ * <p>succez<p>
  * @author sue
- * @createdate 2011-11-11
+ * @createdate 2011-11-07
  */
 public class SortClass {
 	

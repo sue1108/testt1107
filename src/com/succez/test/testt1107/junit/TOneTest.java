@@ -12,6 +12,13 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ * <p>Copyright: Copyright (c) 2011<p>
+ * <p>第一道题：对列表进行排序的测试类<p>
+ * @author sue
+ * @createdate 2011-11-10
+ */
 public class TOneTest {
 
 	@Test
