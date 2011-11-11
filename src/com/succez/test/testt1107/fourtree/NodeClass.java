@@ -1,5 +1,6 @@
 package com.succez.test.testt1107.fourtree;
 
+import com.succez.test.testt1107.common.StaticConstant;
 import com.succez.test.testt1107.pojo.TNode;
 
 /**
@@ -94,7 +95,11 @@ public class NodeClass {
 						i++;
 						t = 0;
 					}
-					StringBuffer sbf = new StringBuffer();
+					
+					int len = StaticConstant.STRINGBUFFER_LEN;
+					if( len <= 0 )
+						len = 8;
+					StringBuffer sbf = new StringBuffer(len);
 					for( int m = startLen ; m < tmp  ; m++ )
 					{
 						sbf.append(nodeArr[m].getValue() + "-");
